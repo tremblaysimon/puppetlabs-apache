@@ -158,7 +158,7 @@ class apache::params inherits ::apache::version {
     $httpd_dir           = '/etc/apache2'
     $server_root         = '/etc/apache2'
     $conf_dir            = $httpd_dir
-    $confd_dir           = "${httpd_dir}/conf.d"
+    $confd_dir           = "${httpd_dir}/conf-enabled"
     $mod_dir             = "${httpd_dir}/mods-available"
     $mod_enable_dir      = "${httpd_dir}/mods-enabled"
     $vhost_dir           = "${httpd_dir}/sites-available"
