@@ -577,13 +577,6 @@ define apache::vhost(
     }
   }
 
-  # Template uses no variables
-  concat::fragment { "${name}-serversignature":
-    target  => "${priority_real}${filename}.conf",
-    order   => 90,
-    content => template('apache/vhost/_serversignature.erb'),
-  }
-
   # Template uses:
   # - $access_log
   # - $_access_log_env_var
