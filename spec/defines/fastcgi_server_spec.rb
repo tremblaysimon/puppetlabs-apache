@@ -48,7 +48,7 @@ describe 'apache::fastcgi::server', :type => :define do
       it { should contain_class("apache::mod::fastcgi") }
       it { should contain_file("fastcgi-pool-#{title}.conf").with(
         :ensure => 'present',
-        :path   => "/etc/apache2/conf.d/fastcgi-pool-#{title}.conf"
+        :path   => "/etc/apache2/conf-enabled/fastcgi-pool-#{title}.conf"
       ) }
     end
     context "on FreeBSD systems" do

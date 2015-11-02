@@ -88,7 +88,7 @@ describe 'apache', :type => :class do
         { :apache_version => '2.2' }
       end
 
-      it { is_expected.to contain_file("/etc/apache2/apache2.conf").with_content %r{^Include "/etc/apache2/conf\.d/\*\.conf"$} }
+      it { is_expected.to contain_file("/etc/apache2/apache2.conf").with_content %r{^Include "/etc/apache2/conf-enabled/\*\.conf"$} }
     end
 
     context "with Apache version >= 2.4" do
@@ -99,7 +99,7 @@ describe 'apache', :type => :class do
         }
       end
 
-      it { is_expected.to contain_file("/etc/apache2/apache2.conf").with_content %r{^IncludeOptional "/etc/apache2/conf\.d/\*\.conf"$} }
+      it { is_expected.to contain_file("/etc/apache2/apache2.conf").with_content %r{^IncludeOptional "/etc/apache2/conf-enabled/\*\.conf"$} }
     end
 
     context "when specifying slash encoding behaviour" do
@@ -156,23 +156,23 @@ describe 'apache', :type => :class do
             :apache_version => '2.2',
           }
         end
-    
+
        context "when default_type => 'none'" do
           let :params do
             { :default_type => 'none' }
           end
-    
+
           it { is_expected.to contain_file("/etc/apache2/apache2.conf").with_content %r{^DefaultType none$} }
         end
         context "when default_type => 'text/plain'" do
           let :params do
             { :default_type => 'text/plain' }
           end
-    
+
           it { is_expected.to contain_file("/etc/apache2/apache2.conf").with_content %r{^DefaultType text/plain$} }
         end
       end
-   
+
       context "with Apache version >= 2.4" do
         let :params do
           {
