@@ -28,9 +28,6 @@ AccessFileName .htaccess
 <Directory />
   Options FollowSymLinks
   AllowOverride None
-<%- if scope.function_versioncmp([@apache_version, '2.4']) >= 0 -%>
-  Require all denied
-<%- end -%>
 </Directory>
 
 <% if @default_charset -%>
